@@ -1,4 +1,4 @@
 class Canal:
-def __init__(self, id=None, nome=''):
-self.id = id
-self.nome = nome
+ def __init__(self, id=None, nome=''):
+  self.id = id
+  self.nome = nome
