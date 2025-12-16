@@ -2,16 +2,16 @@ import sqlite3
 
 
 class Database:
-def __init__(self, nome_db='banco.db'):
-self.conexao = sqlite3.connect(nome_db)
-self.criar_tabelas()
+ def __init__(self, nome_db='banco.db'):
+  self.conexao = sqlite3.connect(nome_db)
+  self.criar_tabelas()
 
 
 def criar_tabelas(self):
-cursor = self.conexao.cursor()
+ cursor = self.conexao.cursor()
 
 
-cursor.execute('''
+ cursor.execute('''
 CREATE TABLE IF NOT EXISTS usuario (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 nome TEXT NOT NULL,
@@ -21,7 +21,7 @@ senha TEXT NOT NULL
 ''')
 
 
-cursor.execute('''
+ cursor.execute('''
 CREATE TABLE IF NOT EXISTS canal (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 nome TEXT NOT NULL
@@ -29,7 +29,7 @@ nome TEXT NOT NULL
 ''')
 
 
-cursor.execute('''
+ cursor.execute('''
 CREATE TABLE IF NOT EXISTS quadro (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 nome TEXT NOT NULL,
@@ -39,7 +39,7 @@ FOREIGN KEY(canal_id) REFERENCES canal(id)
 ''')
 
 
-cursor.execute('''
+ cursor.execute('''
 CREATE TABLE IF NOT EXISTS video (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 titulo TEXT NOT NULL,
@@ -51,4 +51,4 @@ FOREIGN KEY(quadro_id) REFERENCES quadro(id)
 ''')
 
 
-self.conexao.commit()
+ self.conexao.commit()
